@@ -1,0 +1,122 @@
+Name: second, 	Location: (73, 658)
+Name: first, 	Location: (807, 249)
+Name: third, 	Location: (930, 272)
+Name: fourth, 	Location: (544, 878)
+Name: fifth, 	Location: (923, 709)
+Name: sixth, 	Location: (440, 165)
+Name: seventh, 	Location: (492, 42)
+Name: eighth, 	Location: (987, 503)
+Name: nine, 	Location: (327, 729)
+Name: ten, 	Location: (840, 612)
+Name: eleven, 	Location: (303, 169)
+Name: twelve, 	Location: (709, 157)
+Name: thriteen, 	Location: (560, 933)
+Name: fourteen, 	Location: (99, 278)
+Name: fifthteen, 	Location: (816, 335)
+
+0 Fitness: 0.000167537
+1 Fitness: 0.000176493
+2 Fitness: 0.000176493
+3 Fitness: 0.000176493
+4 Fitness: 0.000178482
+5 Fitness: 0.000178482
+6 Fitness: 0.000180625
+7 Fitness: 0.000195914
+8 Fitness: 0.000195914
+9 Fitness: 0.000195914
+10 Fitness: 0.000195914
+11 Fitness: 0.000195914
+12 Fitness: 0.000195914
+13 Fitness: 0.000195914
+14 Fitness: 0.000195914
+15 Fitness: 0.000195914
+16 Fitness: 0.000195914
+17 Fitness: 0.000195914
+18 Fitness: 0.000195914
+19 Fitness: 0.000195914
+20 Fitness: 0.000212048
+21 Fitness: 0.000212048
+22 Fitness: 0.000213335
+23 Fitness: 0.000212048
+24 Fitness: 0.000212048
+25 Fitness: 0.000215223
+26 Fitness: 0.000215223
+27 Fitness: 0.000215223
+28 Fitness: 0.000215223
+29 Fitness: 0.000215223
+30 Fitness: 0.000215223
+31 Fitness: 0.000215223
+32 Fitness: 0.000215223
+33 Fitness: 0.000227701
+34 Fitness: 0.000227701
+35 Fitness: 0.000215223
+36 Fitness: 0.000215223
+37 Fitness: 0.000215223
+38 Fitness: 0.000215223
+39 Fitness: 0.000215223
+40 Fitness: 0.000215223
+41 Fitness: 0.000215223
+42 Fitness: 0.000215223
+43 Fitness: 0.000215223
+44 Fitness: 0.000215223
+45 Fitness: 0.000215223
+46 Fitness: 0.000215223
+47 Fitness: 0.000215223
+48 Fitness: 0.000215223
+49 Fitness: 0.000215223
+50 Fitness: 0.000215223
+51 Fitness: 0.000215223
+52 Fitness: 0.000215223
+53 Fitness: 0.000215223
+54 Fitness: 0.000215223
+55 Fitness: 0.000227701
+56 Fitness: 0.000227701
+57 Fitness: 0.000227701
+58 Fitness: 0.000227701
+59 Fitness: 0.000227701
+60 Fitness: 0.000231749
+61 Fitness: 0.000231749
+62 Fitness: 0.000231749
+63 Fitness: 0.000231749
+64 Fitness: 0.000231749
+65 Fitness: 0.000231749
+66 Fitness: 0.000231749
+67 Fitness: 0.000231749
+68 Fitness: 0.000231749
+69 Fitness: 0.000231749
+70 Fitness: 0.000231749
+71 Fitness: 0.000231749
+72 Fitness: 0.000231749
+73 Fitness: 0.000231749
+74 Fitness: 0.000231749
+75 Fitness: 0.000231749
+76 Fitness: 0.000231749
+77 Fitness: 0.000238532
+78 Fitness: 0.000238532
+79 Fitness: 0.000238532
+80 Fitness: 0.000238532
+81 Fitness: 0.000238532
+82 Fitness: 0.000238532
+83 Fitness: 0.000238532
+84 Fitness: 0.000238532
+85 Fitness: 0.000262424
+86 Fitness: 0.000262424
+87 Fitness: 0.000262424
+88 Fitness: 0.000262424
+89 Fitness: 0.000265435
+90 Fitness: 0.000265435
+91 Fitness: 0.000265435
+92 Fitness: 0.000265435
+93 Fitness: 0.000265435
+94 Fitness: 0.000265435
+95 Fitness: 0.000265435
+96 Fitness: 0.000265435
+97 Fitness: 0.000265435
+98 Fitness: 0.000265435
+99 Fitness: 0.000265435
+
+Fittest recorded: 0.000265435 and the fittest at end is 0.000265435
+Route: Tour: 
+ten to nine to second to fourteen to eleven to sixth to seventh to twelve to fifthteen to first to third to eighth to fourth to thriteen to fifth
+Fitness: 0.000265435
+Distance: 3767.4
