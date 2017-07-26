@@ -4,9 +4,6 @@
 
 #include "GA.h"
 
-const double GA::_mutation_rate = RAND_MAX * 0.015;
-const int GA::_tournament_size = 8;
-const bool GA::_elitist = true;
 
 tour_t *GA::tournament_selection( const population_t &population )
 {

@@ -104,11 +104,11 @@ public:
 
 	std::string to_string(void) const {
 		std::stringstream ss;
-		ss << "Tour: " << std::endl;
+		//ss << "Tour: " << std::endl;
 		city_loop_t::const_iterator it;
 		for(it = _cities.begin(); it != (_cities.end() - 1); it++){
 			if(*it != nullptr ){
-				ss << ( *it )->get_name() << " to ";
+				ss << ( *it )->get_name() << ",";
 			}
 			else{
 				ss << " null ";
@@ -122,25 +122,22 @@ public:
 
 	}
 
-	bool operator>(tour_t& rhs){
-		return this->get_fitness() > rhs.get_fitness();
-	}
-
-	bool operator==(tour_t& rhs){
+	bool operator==(const tour_t& rhs){
 		return this->get_fitness() == rhs.get_fitness();
 	}
-
-	bool operator<(tour_t& rhs){
-		return this->get_fitness() < rhs.get_fitness();
-	}
-
-	bool operator<=(tour_t& rhs){
+	bool operator<=(const tour_t& rhs){
 		return this->get_fitness() <= rhs.get_fitness();
 	}
-
-	bool operator>=(tour_t& rhs){
+	bool operator>(const tour_t& rhs){
+		return this->get_fitness() > rhs.get_fitness();
+	}
+	bool operator<(const tour_t& rhs){
+		return this->get_fitness() < rhs.get_fitness();
+	}
+	bool operator>=(const tour_t& rhs){
 		return this->get_fitness() >= rhs.get_fitness();
 	}
+
 
 private:
 	city_loop_t _cities;
