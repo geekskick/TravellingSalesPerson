@@ -117,7 +117,7 @@ std::string tour_t::to_string(void) const {
 	//ss << "Tour: " << std::endl;
 	city_loop_t::const_iterator it;
 	for(it = _cities.begin(); it != (_cities.end() - 1); it++){
-		ss << ( *it ).get_name() << ",";
+		ss << ( *it ).get_name() << " to ";
 	}
 
 	ss << (*(_cities.end()-1)).get_name() <<std::endl;

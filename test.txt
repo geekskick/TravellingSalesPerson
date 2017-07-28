@@ -10,6 +10,6 @@ nine 327 729
 ten 840 612
 eleven 303 169
 twelve 709 157
-thriteen 560 933
+thirteen 560 933
 fourteen 99 278
-fifthteen 816 335
+fifteen 816 335

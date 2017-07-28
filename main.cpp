@@ -128,14 +128,15 @@ int main( )
 	f.close();
 
 	// show to confirm done
+	std::cout << "Cities loaded from file" << std::endl;
 	std::cout << tour_manager_t::get().to_string();
 
-	std::ofstream ofile;
-	ofile.open("results.csv", std::ios::app);
-	if(!ofile.is_open()){
-		std::cout << "Error opening file" << std::endl;
-		return EXIT_FAILURE;
-	}
+//	std::ofstream ofile;
+//	ofile.open("results.csv", std::ios::app);
+//	if(!ofile.is_open()){
+//		std::cout << "Error opening file" << std::endl;
+//		return EXIT_FAILURE;
+//	}
 
 	const int pop_size = 50;
 
@@ -145,9 +146,9 @@ int main( )
 	//ofile  << "popsize," << pop_size << std::endl;
 
 
-	for( int i = 0; i < tour_manager_t::get().get_city_count(); i++){
-		//ofile << tour_manager_t::get().get_city(i).to_string() << "," << std::endl;
-	}
+//	for( int i = 0; i < tour_manager_t::get().get_city_count(); i++){
+//		ofile << tour_manager_t::get().get_city(i).to_string() << "," << std::endl;
+//	}
 
 	// true means to randomly generate a bunch of tours in the population
 	// the population size here is the city count value.
@@ -160,9 +161,8 @@ int main( )
 	for(int i = 0; i < 100; i++){
 		p = gen.evolve_population(p);
 		if( p.get_fittest().get_fitness() > fittest) { fittest = p.get_fittest().get_fitness(); }
-		std::cout << i << " Fitness: " << p.get_fittest().get_fitness() << std::endl;
+		std::cout << "Generation: " << i << " Fitness: " << p.get_fittest().get_fitness() << std::endl;
 		//ofile << i << "," << p.get_fittest()->get_fitness() << "," << std::endl;
-
 	}
 
 //	for(int po = 1; po < 40; po++){
@@ -181,7 +181,7 @@ int main( )
 //	ofile << "Route," <<  p.get_fittest()->to_string() << std::endl;
 	tour_manager_t::get().destroy();
 
-	ofile.close();
-	std::cout << "done" << std::endl;
+	//ofile.close();
+	std::cout << "Done" << std::endl;
 	return 0;
 }
