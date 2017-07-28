@@ -12,7 +12,7 @@ class GA: describable_t
 {
 public:
 
-	void mutate( tour_t *t );
+	void mutate( tour_t &t );
 
 	population_t evolve_population( population_t& input_pop);
 
@@ -45,7 +45,7 @@ protected:
 	tour_t tournament_selection( population_t &population );
 
 
-
+	void duplicate_check( tour_t &t ) const;
 };
 
 

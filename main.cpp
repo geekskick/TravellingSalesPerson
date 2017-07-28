@@ -51,23 +51,23 @@ void test(void){
 	std::cout << t1.to_string() << std::endl;
 
 	population_t py(tour_manager_t::get().get_city_count(), true);
-
 	std::cout << py.to_string() << std::endl;
 
-	std::cout << py.to_string() << std::endl;
-
+	// totally empty
 	population_t pn(3, false);
 	std::cout << pn.to_string() << std::endl;
 
+	//only one item
 	pn.set_tour(0, t1);
 	std::cout << pn.to_string() << std::endl;
 
 	std::cout << "FITTEST EXPECTED TO BE " << t1.to_string() << " and calculated as " << pn.get_fittest().to_string() << std::endl;
 
-	tour_t dt(tour_manager_t::get().get_cities());
+	// middle item is empty
 	pn.set_tour(2, t1);
 	std::cout << pn.to_string() << std::endl;
 
+	// new random population
 	population_t py2(3, true);
 
 	GA gen;
@@ -80,11 +80,27 @@ void test(void){
 
 
 	std::cout << "=====Testing TSP Complete=====" << std::endl;
+
+	tour_manager_t::get().destroy();
+}
+template<typename Out>
+void split(const std::string &s, char delim, Out result) {
+	std::stringstream ss;
+	ss.str(s);
+	std::string item;
+	while (std::getline(ss, item, delim)) {
+		*(result++) = item;
+	}
+}
+std::vector<std::string> split(const std::string &s, char delim) {
+	std::vector<std::string> elems;
+	split(s, delim, std::back_inserter(elems));
+	return elems;
 }
 int main( )
 {
-	test();
-	return 1;
+	//test();
+	//return 1;
 
 	city_t c0("first", std::rand() % 1000, std::rand() % 1000);
 	city_t c1("second",std::rand() % 1000, std::rand() % 1000);
@@ -143,30 +159,35 @@ int main( )
 
 	// an indiviual in the population is a route
 	// and a population is a bunch of routes to try
-	// population_t p(pop_size, true);
+	population_t p(pop_size, true);
 
-//	double fittest = 0.0;
-//	for(int i = 0; i < 100; i++){
-//		p = GA::get().evolve_population(p);
-//		if( p.get_fittest()->get_fitness() > fittest) { fittest = p.get_fittest()->get_fitness(); }
-//		std::cout << i << " Fitness: " << p.get_fittest()->get_fitness() << std::endl;
-//		//ofile << i << "," << p.get_fittest()->get_fitness() << "," << std::endl;
-//
-//	}
+	double fittest = 0.0;
+	for(int i = 0; i < 100; i++){
+		p = gen.evolve_population(p);
+		if( p.get_fittest().get_fitness() > fittest) { fittest = p.get_fittest().get_fitness(); }
+		std::cout << i << " Fitness: " << p.get_fittest().get_fitness() << std::endl;
+		std::string l = p.get_fittest().to_string();
+		std::vector<std::string> x = split(l, ',');
+		if(std::count(x.begin(), x.end(), "first") != 1 ){
 
-	for(int po = 1; po < 40; po++){
-		//ofile << "popsize," << po << std::endl;
-		population_t p(po, true);
-		for(int i = 1; i <= 100; i++){
-			p = gen.evolve_population(p);
-			std::cout << "gen," << i << ",fitness," << p.get_fittest().get_fitness() << std::endl;
-			//ofile << "gen," << i << ",fitness," << p.get_fittest().get_fitness() << std::endl;
 		}
-		//ofile << "route," << p.get_fittest()->to_string() << std::endl;
+		//ofile << i << "," << p.get_fittest()->get_fitness() << "," << std::endl;
+
 	}
 
-//	std::cout << "Fittest recorded: " << fittest << " and the fittest at end is " << p.get_fittest().get_fitness() << std::endl;
-//	std::cout << "Route: " << p.get_fittest()->to_string() << std::endl;
+//	for(int po = 1; po < 40; po++){
+//		//ofile << "popsize," << po << std::endl;
+//		population_t p(po, true);
+//		for(int i = 1; i <= 100; i++){
+//			p = gen.evolve_population(p);
+//			std::cout << "gen," << i << ",fitness," << p.get_fittest().get_fitness() << std::endl;
+//			//ofile << "gen," << i << ",fitness," << p.get_fittest().get_fitness() << std::endl;
+//		}
+//		//ofile << "route," << p.get_fittest()->to_string() << std::endl;
+//	}
+
+	std::cout << "Fittest recorded: " << fittest << " and the fittest at end is " << p.get_fittest().get_fitness() << std::endl;
+	std::cout << "Route: " << p.get_fittest().to_string() << std::endl;
 //	ofile << "Route," <<  p.get_fittest()->to_string() << std::endl;
 	tour_manager_t::get().destroy();
 

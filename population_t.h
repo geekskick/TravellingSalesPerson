@@ -27,7 +27,7 @@ public:
 
 	~population_t( ){	}
 
-	void set_tour(const int idx, tour_t& t){
+	void set_tour(const int idx, tour_t t){
 		_tours[idx] = t;
 	}
 

@@ -42,7 +42,7 @@ public:
 		std::random_shuffle(tour.begin(), tour.end());
 	}
 
-	const city_t& get_city(const int idx){
+	const city_t get_city(const int idx){
 		return _cities[idx];
 	}
 
@@ -153,6 +153,7 @@ public:
 		return rc;
 	}
 
+	std::vector<city_t>& get_cities(void){ return _cities; }
 private:
 	std::vector<city_t> _cities;
 	mutable double _fitness;  // must be mutable to be used in to_string()

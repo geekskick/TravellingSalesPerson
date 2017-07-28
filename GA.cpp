@@ -2,7 +2,9 @@
 // Created by Patrick Mintram on 22/07/2017.
 //
 
+#include <unordered_map>
 #include "GA.h"
+#include <vector>
 
 
 tour_t GA::tournament_selection( population_t &population )
@@ -47,33 +49,59 @@ population_t GA::evolve_population(population_t& input_pop){
 	int elitism_offset = 0;
 	if(_elitist){
 		elitism_offset++;
-		next_pop.set_tour(0, input_pop.get_tour(0));
+		next_pop.set_tour(0, input_pop.get_fittest());
 	}
 
 	for(int i = elitism_offset; i < input_pop.get_size(); i++){
 		tour_t child;
 		tour_t p1 = tournament_selection(input_pop);
 		tour_t p2 = tournament_selection(input_pop);
+		duplicate_check(p1);
+		duplicate_check(p2);
+
 		crossover(p1, p2, child);
-		mutate(&child);
+		duplicate_check(child);
+
+		mutate(child);
+		duplicate_check(child);
+
 		next_pop.set_tour(i, child);
 	}
+
 
 	return next_pop;
 
 }
 
-void GA::mutate( tour_t *t )
+void GA::mutate( tour_t &t )
 {
-	for(int i = 0; i < t->get_city_count(); i++){
+	for(int i = 0; i < t.get_city_count(); i++){
 		int random = std::rand();
 		if(random < _mutation_rate){
-			int rand_idx = int(std::rand() % t->get_city_count());
-			const city_t& c1 = t->get_city(i);
-			const city_t& c2 = t->get_city(rand_idx);
+			int rand_idx = int(std::rand() % t.get_city_count());
+			city_t c1 = t.get_city(i);
+			city_t c2 = t.get_city(rand_idx);
 
-			t->set_city(i, c2);
-			t->set_city(rand_idx, c1);
+			t.set_city(i, c2);
+			t.set_city(rand_idx, c1);
+		}
+	}
+
+	duplicate_check( t );
+
+}
+
+void GA::duplicate_check( tour_t &t ) const
+{
+	std::vector<city_t>& c = t.get_cities();
+	std::vector<city_t>::iterator it = c.begin();
+	std::unordered_map<std::string, int> map;
+	for(;it != c.end();it++){
+		if(map.count(it->get_name()) == 0) { map[it->get_name()] = 0; }
+		map[it->get_name()] += 1;
+		if(map[it->get_name()] > 1)
+		{
+			throw;
 		}
 	}
 
