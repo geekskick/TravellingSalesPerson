@@ -1,0 +1,15 @@
+first 807 249
+second 73 658
+third 930 272
+fourth 544 878
+fifth 923 709
+sixth 440 165
+seventh 492 42
+eighth 987 503
+nine 327 729
+ten 840 612
+eleven 303 169
+twelve 709 157
+thriteen 560 933
+fourteen 99 278
+fifthteen 816 335

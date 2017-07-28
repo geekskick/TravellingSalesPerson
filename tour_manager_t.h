@@ -7,7 +7,7 @@
 
 typedef  std::vector<city_t> city_loop_t;
 
-class tour_manager_t
+class tour_manager_t: public describable_t
 {
 public:
 	static tour_manager_t& get(void);
@@ -16,6 +16,7 @@ public:
 	const city_t& get_city(const int idx) const;
 	const city_loop_t& get_cities(void) const;
 	void add_city(const city_t& c);
+	std::string to_string(void) const;
 
 private:
 

@@ -27,3 +27,11 @@ const city_loop_t& tour_manager_t::get_cities(void) const {
 void tour_manager_t::add_city(const city_t& c) {
 	_cities.push_back(c);
 }
+
+std::string tour_manager_t::to_string( void ) const {
+	std::stringstream ss;
+	for( int i = 0; i < get_city_count(); i++){
+		ss << get_city(i).to_string() << std::endl;
+	}
+	return ss.str();
+}
