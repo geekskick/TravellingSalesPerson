@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #ifndef TSP_TOUR_T_H
 #define TSP_TOUR_T_H
 
@@ -17,10 +13,10 @@ public:
 	tour_t(const std::vector<city_t>& tour);
 	~tour_t(void);
 	long get_city_count(void);
-	void set_city( const int idx, const city_t& c);
+	void set_city( const size_t idx, const city_t &c );
 	void random_fill();
 	static void randomize(city_loop_t& tour);
-	const city_t get_city(const int idx);
+	const city_t get_city( const size_t idx );
 	const double &get_fitness(void);
 	const double &get_fitness(void) const;
 	const double& get_distance(void);

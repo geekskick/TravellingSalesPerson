@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #include "tour_t.h"
 
 //------------
@@ -26,7 +22,7 @@ long tour_t::get_city_count(void) {
 }
 
 //------------
-void tour_t::set_city( const int idx, const city_t& c) {
+void tour_t::set_city( const size_t idx, const city_t &c ) {
 	_fitness = 0.0;
 	_distance = 0.0;
 	_cities[idx] = c;
@@ -44,7 +40,7 @@ void tour_t::randomize(city_loop_t& tour){
 }
 
 //------------
-const city_t tour_t::get_city(const int idx){
+const city_t tour_t::get_city( const size_t idx ){
 	return _cities[idx];
 }
 

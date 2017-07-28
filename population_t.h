@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #ifndef TSP_POPULATION_T_H
 #define TSP_POPULATION_T_H
 
@@ -14,8 +10,8 @@ class population_t: public describable_t{
 public:
 	population_t(const size_t pop_size, const bool initialise);
 	~population_t( ){	}
-	void set_tour(const int idx, tour_t t);
-	tour_t& get_tour(const int idx);
+	void set_tour(const size_t idx, tour_t t);
+	tour_t& get_tour(const size_t idx);
 	tour_t get_fittest(void);
 	size_t get_size(void) const;
 	std::string to_string(void) const;

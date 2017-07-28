@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #ifndef TSP_GA_H
 #define TSP_GA_H
 
@@ -19,9 +15,9 @@ public:
 	std::string to_string(void) const;
 
 	double get_mutation_rate(void);
-	int get_tournament_size(void);
+	size_t get_tournament_size( void );
 	bool is_elitist(void);
-	void set_tournament_size(const int s);
+	void set_tournament_size(const size_t s);
 	void set_mutation_rate(const double m);
 	void set_elitism(const bool e);
 
@@ -29,7 +25,7 @@ public:
 	{ }
 protected:
 	double _mutation_rate;
-	int _tournament_size;
+	size_t _tournament_size;
 	bool _elitist;
 
 	tour_t &crossover( tour_t &pTour, tour_t &p2, tour_t &child );

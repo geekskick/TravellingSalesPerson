@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #ifndef TSP_CITY_T_H
 #define TSP_CITY_T_H
 
@@ -36,6 +32,7 @@ protected:
 	location_t _location;
 };
 
+//--------------
 class empty_city_t :public city_t{
 public:
 	static const std::string EMPTY;

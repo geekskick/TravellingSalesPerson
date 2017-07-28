@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #ifndef TSP_LOCATION_T_H
 #define TSP_LOCATION_T_H
 

@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #include "tour_manager_t.h"
 
 tour_manager_t* tour_manager_t::p = nullptr;
@@ -16,7 +12,7 @@ tour_manager_t& tour_manager_t::get(void) {
 	return *p;
 }
 
-long tour_manager_t::get_city_count(void) const {
+unsigned long tour_manager_t::get_city_count(void) const {
 	return _cities.size();
 }
 

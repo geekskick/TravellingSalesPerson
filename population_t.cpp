@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #include "population_t.h"
 
 //--------------------
@@ -17,12 +13,12 @@ population_t::population_t(const size_t pop_size, const bool initialise) :_tours
 }
 
 //--------------------
-void population_t::set_tour(const int idx, tour_t t){
+void population_t::set_tour(const size_t idx, tour_t t){
 	_tours[idx] = t;
 }
 
 //--------------------
-tour_t& population_t::get_tour(const int idx){
+tour_t& population_t::get_tour(const size_t idx){
 	return _tours[idx];
 }
 

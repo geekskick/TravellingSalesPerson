@@ -1,7 +1,3 @@
-//
-// Created by Patrick Mintram on 22/07/2017.
-//
-
 #ifndef TSP_TOUR_MANAGER_T_H
 #define TSP_TOUR_MANAGER_T_H
 
@@ -16,7 +12,7 @@ class tour_manager_t
 public:
 	static tour_manager_t& get(void);
 	void destroy(void);
-	long get_city_count(void) const;
+	unsigned long get_city_count( void) const;
 	const city_t& get_city(const int idx) const;
 	const city_loop_t& get_cities(void) const;
 	void add_city(const city_t& c);
