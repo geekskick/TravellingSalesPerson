@@ -1,31 +1,21 @@
 #include "tour_t.h"
-
+#include "tour_manager_t.h"
 //------------
-tour_t::tour_t(void): _cities(tour_manager_t::get().get_city_count(), empty_city_t()),_fitness(0.0),_distance(0.0)
-{}
-
-//------------
-tour_t::tour_t(const std::vector<city_t>& tour):
-		_cities(tour), _fitness(0.0), _distance(0.0)
+tour_t::tour_t(void)
+		: _fitness(0.0),_distance(0.0)
 {
+	_cities = city_loop_t(tour_manager_t::get().get_city_count(), empty_city_t());
+}
 
+//------------
+tour_t::tour_t(const std::vector<city_t>& tour): _fitness(0.0), _distance(0.0)
+{
+	_cities = tour;
 }
 
 //------------
 tour_t::~tour_t(void){
 	//std::cout << "Deleting tour" << std::endl;
-}
-
-//------------
-long tour_t::get_city_count(void) {
-	return _cities.size();
-}
-
-//------------
-void tour_t::set_city( const size_t idx, const city_t &c ) {
-	_fitness = 0.0;
-	_distance = 0.0;
-	_cities[idx] = c;
 }
 
 //------------
@@ -39,10 +29,6 @@ void tour_t::randomize(city_loop_t& tour){
 	std::random_shuffle(tour.begin(), tour.end());
 }
 
-//------------
-const city_t tour_t::get_city( const size_t idx ){
-	return _cities[idx];
-}
 
 //------------
 const double &tour_t::get_fitness(void){
@@ -100,16 +86,6 @@ const double& tour_t::get_distance(void) const {
 
 }
 
-//------------
-bool tour_t::contains_city(const city_t& c){
-	bool rc = false;
-	std::vector<city_t>::iterator it = _cities.begin();
-	while(it != _cities.end()){
-		if(c.to_string() == (*it).to_string()) { rc = true; break; }
-		it++;
-	}
-	return rc;
-}
 
 //------------
 std::string tour_t::to_string(void) const {
@@ -167,7 +143,8 @@ bool tour_t::is_empty(void) const
 	return rc;
 }
 
-//------------
-std::vector<city_t>& tour_t::get_cities(void){
-	return _cities;
+void tour_t::set_city( const size_t idx, const city_t &c ) {
+	_fitness = 0.0;
+	_distance = 0.0;
+	tour_base_t::set_city( idx, c );
 }

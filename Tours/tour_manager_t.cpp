@@ -12,22 +12,6 @@ tour_manager_t& tour_manager_t::get(void) {
 	return *p;
 }
 
-unsigned long tour_manager_t::get_city_count(void) const {
-	return _cities.size();
-}
-
-const city_t& tour_manager_t::get_city(const int idx) const {
-	return _cities[idx];
-}
-
-const city_loop_t& tour_manager_t::get_cities(void) const {
-	return _cities;
-}
-
-void tour_manager_t::add_city(const city_t& c) {
-	_cities.push_back(c);
-}
-
 std::string tour_manager_t::to_string( void ) const {
 	std::stringstream ss;
 	for( int i = 0; i < get_city_count(); i++){

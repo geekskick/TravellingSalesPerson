@@ -3,35 +3,30 @@
 
 
 #include <vector>
-#include "city_t.h"
-#include "tour_manager_t.h"
+#include "../City/city_t.h"
+#include "tour_base_t.h"
 
-class tour_t: public describable_t
+class tour_t: public describable_t, public tour_base_t
 {
 public:
 	tour_t(void);
 	tour_t(const std::vector<city_t>& tour);
 	~tour_t(void);
-	long get_city_count(void);
-	void set_city( const size_t idx, const city_t &c );
+	void set_city( const size_t idx, const city_t &c ) override;
 	void random_fill();
 	static void randomize(city_loop_t& tour);
-	const city_t get_city( const size_t idx );
 	const double &get_fitness(void);
 	const double &get_fitness(void) const;
 	const double& get_distance(void);
 	const double& get_distance(void) const;
-	bool contains_city(const city_t& c);
-	std::string to_string(void) const;
+	std::string to_string(void) const override;
 	bool operator==(const tour_t& rhs);
 	bool operator<=(const tour_t& rhs);
 	bool operator>(const tour_t& rhs);
 	bool operator<(const tour_t& rhs);
 	bool operator>=(const tour_t& rhs);
 	bool is_empty(void) const;
-	std::vector<city_t>& get_cities(void);
 private:
-	std::vector<city_t> _cities;
 	mutable double _fitness;  // must be mutable to be used in to_string()
 	mutable double _distance; // must be mutable to be used in to_string()
 };

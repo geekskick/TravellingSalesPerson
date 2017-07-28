@@ -4,13 +4,12 @@
 
 #include "population_t.h"
 
-class GA: describable_t
+class GA: public describable_t
 {
 public:
 
 	void mutate( tour_t &t );
 	population_t evolve_population( population_t& input_pop);
-
 
 	std::string to_string(void) const;
 

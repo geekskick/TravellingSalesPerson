@@ -3,13 +3,13 @@
 
 
 #include <vector>
-#include "describable_t.h"
-#include "tour_t.h"
+#include "../Utils/describable_t.h"
+#include "../Tours/tour_t.h"
 
 class population_t: public describable_t{
 public:
 	population_t(const size_t pop_size, const bool initialise);
-	~population_t( ){	}
+	~population_t( ){}
 	void set_tour(const size_t idx, tour_t t);
 	tour_t& get_tour(const size_t idx);
 	tour_t get_fittest(void);

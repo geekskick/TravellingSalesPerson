@@ -2,7 +2,7 @@
 #define TSP_FILE_READER_T_H
 
 
-#include "location_t.h"
+#include "../City/location_t.h"
 #include <fstream>
 
 class file_reader_t

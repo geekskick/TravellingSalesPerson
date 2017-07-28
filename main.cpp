@@ -1,12 +1,12 @@
 #include <iostream>
 #include <fstream>
 
-#include "city_t.h"
-#include "tour_manager_t.h"
-#include "tour_t.h"
-#include "population_t.h"
-#include "GA.h"
-#include "file_reader_t.h"
+#include "City/city_t.h"
+#include "Tours/tour_manager_t.h"
+#include "Tours/tour_t.h"
+#include "GA/population_t.h"
+#include "GA/GA.h"
+#include "Utils/file_reader_t.h"
 
 
 void test(void){
@@ -131,57 +131,31 @@ int main( )
 	std::cout << "Cities loaded from file" << std::endl;
 	std::cout << tour_manager_t::get().to_string();
 
-//	std::ofstream ofile;
-//	ofile.open("results.csv", std::ios::app);
-//	if(!ofile.is_open()){
-//		std::cout << "Error opening file" << std::endl;
-//		return EXIT_FAILURE;
-//	}
-
 	const int pop_size = 50;
-
-	//ofile << "=======New run=======" << std::endl;
 	GA gen;
-	//ofile << gen.to_string();
-	//ofile  << "popsize," << pop_size << std::endl;
 
-
-//	for( int i = 0; i < tour_manager_t::get().get_city_count(); i++){
-//		ofile << tour_manager_t::get().get_city(i).to_string() << "," << std::endl;
-//	}
 
 	// true means to randomly generate a bunch of tours in the population
 	// the population size here is the city count value.
-
-	// an indiviual in the population is a route
+	// an individual in the population is a route
 	// and a population is a bunch of routes to try
 	population_t p(pop_size, true);
 
 	double fittest = 0.0;
+
+	// Make 100 generations ... just cause.
 	for(int i = 0; i < 100; i++){
 		p = gen.evolve_population(p);
+
+		// Keep track of the fittest separately for proof it's working.
 		if( p.get_fittest().get_fitness() > fittest) { fittest = p.get_fittest().get_fitness(); }
 		std::cout << "Generation: " << i << " Fitness: " << p.get_fittest().get_fitness() << std::endl;
-		//ofile << i << "," << p.get_fittest()->get_fitness() << "," << std::endl;
 	}
-
-//	for(int po = 1; po < 40; po++){
-//		//ofile << "popsize," << po << std::endl;
-//		population_t p(po, true);
-//		for(int i = 1; i <= 100; i++){
-//			p = gen.evolve_population(p);
-//			std::cout << "gen," << i << ",fitness," << p.get_fittest().get_fitness() << std::endl;
-//			//ofile << "gen," << i << ",fitness," << p.get_fittest().get_fitness() << std::endl;
-//		}
-//		//ofile << "route," << p.get_fittest()->to_string() << std::endl;
-//	}
 
 	std::cout << "Fittest recorded: " << fittest << " and the fittest at end is " << p.get_fittest().get_fitness() << std::endl;
 	std::cout << "Route: " << p.get_fittest().to_string() << std::endl;
-//	ofile << "Route," <<  p.get_fittest()->to_string() << std::endl;
 	tour_manager_t::get().destroy();
 
-	//ofile.close();
 	std::cout << "Done" << std::endl;
 	return 0;
 }
