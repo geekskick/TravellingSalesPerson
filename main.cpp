@@ -166,11 +166,6 @@ int main( )
 		p = gen.evolve_population(p);
 		if( p.get_fittest().get_fitness() > fittest) { fittest = p.get_fittest().get_fitness(); }
 		std::cout << i << " Fitness: " << p.get_fittest().get_fitness() << std::endl;
-		std::string l = p.get_fittest().to_string();
-		std::vector<std::string> x = split(l, ',');
-		if(std::count(x.begin(), x.end(), "first") != 1 ){
-
-		}
 		//ofile << i << "," << p.get_fittest()->get_fitness() << "," << std::endl;
 
 	}

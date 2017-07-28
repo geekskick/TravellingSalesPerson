@@ -14,25 +14,21 @@ typedef  std::vector<city_t> city_loop_t;
 class tour_manager_t
 {
 public:
-	static tour_manager_t& get(void) {
-		if( nullptr == p ){ p = new tour_manager_t(); }
-		return *p;
-	}
+	static tour_manager_t& get(void);
+	void destroy(void);
+	long get_city_count(void) const;
+	const city_t& get_city(const int idx) const;
+	const city_loop_t& get_cities(void) const;
+	void add_city(const city_t& c);
 
-	void destroy(void){
-		delete p;
-		p = nullptr;
-	}
-
-	long get_city_count(void) const { return _cities.size(); }
-	const city_t& get_city(const int idx) const { return _cities[idx]; }
-	const city_loop_t& get_cities(void) const { return _cities; }
-	void add_city(const city_t& c) { _cities.push_back(c); }
 private:
+
 	static tour_manager_t* p;
+
+	typedef std::vector<city_t> city_loop_t;
 	city_loop_t _cities;
-	tour_manager_t(void){
-	}
+
+	tour_manager_t(void){}
 
 
 

@@ -106,3 +106,31 @@ void GA::duplicate_check( tour_t &t ) const
 	}
 
 }
+
+std::string GA::to_string(void) const {
+	std::stringstream ss;
+	ss << "Mutation Rate," << _mutation_rate << "," << std::endl;
+	ss << "Tournament Size," << _tournament_size << "," << std::endl;
+	ss << "Elitism," << _elitist << "," << std::endl;
+	return ss.str();
+}
+
+
+double GA::get_mutation_rate(void) {
+	return _mutation_rate;
+}
+int GA::get_tournament_size(void) {
+	return _tournament_size;
+}
+bool GA::is_elitist(void){
+	return _elitist;
+}
+void GA::set_tournament_size(const int s) {
+	_tournament_size = s;
+}
+void GA::set_mutation_rate(const double m) {
+	_mutation_rate = m;
+}
+void GA::set_elitism(const bool e){
+	_elitist = e;
+}
