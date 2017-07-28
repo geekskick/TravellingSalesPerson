@@ -111,11 +111,8 @@ void file_test(void){
 
 int main( )
 {
-	//file_test();
-	//return 2;
-	//test();
-	//return 1;
 
+	// read in the city location in the file
 	file_reader_t f("../test.txt");
 	city_loop_t cities;
 	city_loop_t::iterator it;
@@ -124,48 +121,14 @@ int main( )
 	location_t loc;
 
 	while(f.get_city(name, loc)){
-		cities.push_back(city_t(name, loc));
+		cities.emplace_back(name, loc);
 		it = cities.end() - 1;
 		tour_manager_t::get().add_city(*it);
 	}
 	f.close();
 
+	// show to confirm done
 	std::cout << tour_manager_t::get().to_string();
-	return 3;
-
-
-
-//	city_t c0("first", std::rand() % 1000, std::rand() % 1000);
-//	city_t c1("second",std::rand() % 1000, std::rand() % 1000);
-//	city_t c2("third", std::rand() % 1000, std::rand() % 1000);
-//	city_t c3("fourth",std::rand() % 1000, std::rand() % 1000);
-//	city_t c4("fifth", std::rand() % 1000, std::rand() % 1000);
-//	city_t c5("sixth", std::rand() % 1000, std::rand() % 1000);
-//	city_t c6("seventh",std::rand() % 1000, std::rand() % 1000);
-//	city_t c7("eighth",std::rand() % 1000, std::rand() % 1000);
-//	city_t c8("nine", std::rand() % 1000, std::rand() % 1000);
-//	city_t c9("ten", std::rand() % 1000, std::rand() % 1000);
-//	city_t c10("eleven",std::rand() % 1000, std::rand() % 1000);
-//	city_t c11("twelve",std::rand() % 1000, std::rand() % 1000);
-//	city_t c12("thriteen",std::rand() % 1000, std::rand() % 1000);
-//	city_t c13("fourteen", std::rand() % 1000, std::rand() % 1000);
-//	city_t c14("fifthteen", std::rand() % 1000, std::rand() % 1000);
-//
-//	tour_manager_t::get().add_city(c0);
-//	tour_manager_t::get().add_city(c1);
-//	tour_manager_t::get().add_city(c2);
-//	tour_manager_t::get().add_city(c3);
-//	tour_manager_t::get().add_city(c4);
-//	tour_manager_t::get().add_city(c5);
-//	tour_manager_t::get().add_city(c6);
-//	tour_manager_t::get().add_city(c7);
-//	tour_manager_t::get().add_city(c8);
-//	tour_manager_t::get().add_city(c9);
-//	tour_manager_t::get().add_city(c10);
-//	tour_manager_t::get().add_city(c11);
-//	tour_manager_t::get().add_city(c12);
-//	tour_manager_t::get().add_city(c13);
-//	tour_manager_t::get().add_city(c14);
 
 	std::ofstream ofile;
 	ofile.open("results.csv", std::ios::app);
@@ -181,8 +144,6 @@ int main( )
 	//ofile << gen.to_string();
 	//ofile  << "popsize," << pop_size << std::endl;
 
-	// show the locations of the cities
-	std::cout << tour_manager_t::get().to_string();
 
 	for( int i = 0; i < tour_manager_t::get().get_city_count(); i++){
 		//ofile << tour_manager_t::get().get_city(i).to_string() << "," << std::endl;
