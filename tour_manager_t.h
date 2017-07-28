@@ -9,7 +9,7 @@
 #include <vector>
 #include "city_t.h"
 
-typedef  std::vector<city_t*> city_loop_t;
+typedef  std::vector<city_t> city_loop_t;
 
 class tour_manager_t
 {
@@ -25,9 +25,9 @@ public:
 	}
 
 	long get_city_count(void) const { return _cities.size(); }
-	const city_t& get_city(const int idx) const { return *_cities[idx]; }
+	const city_t& get_city(const int idx) const { return _cities[idx]; }
 	const city_loop_t& get_cities(void) const { return _cities; }
-	void add_city(city_t* c) { _cities.push_back(c); }
+	void add_city(const city_t& c) { _cities.push_back(c); }
 private:
 	static tour_manager_t* p;
 	city_loop_t _cities;

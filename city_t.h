@@ -26,21 +26,20 @@ public:
 			: _name(name), _location(x,y)
 	{}
 
-	~city_t(void){
-		std::cout << "destroying "<<_name << std::endl;
-	}
+	~city_t(void){}
 
-	const location_t& get_location(void) const { return _location; }
-	const std::string& get_name(void) const { return _name; }
-	std::string to_string(void) const{
-		std::stringstream ss;
-		ss << "Name: " << _name << ", \tLocation: " << _location.to_string();
-		return ss.str();
-	}
+	const location_t& get_location(void) const;
+	const std::string& get_name(void) const;
+	std::string to_string(void) const;
 protected:
-	const std::string _name;
-	const location_t _location;
+	std::string _name;
+	location_t _location;
 };
 
+class empty_city_t :public city_t{
+public:
+	static const std::string EMPTY;
+	empty_city_t(void):city_t(EMPTY,0,0){}
+};
 
 #endif //TSP_CITY_T_H
