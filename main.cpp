@@ -109,11 +109,18 @@ void file_test(void){
 	f.close();
 }
 
-int main( )
+void usage(void){
+	std::cout << "Incorrect usage: ./tsp <filename.txt>" << std::endl;
+}
+
+int main( int argc, const char *argv[])
 {
 
+
+	if( argc != 2 ){ usage(); return 1;}
+
 	// read in the city location in the file
-	file_reader_t f("../test.txt");
+	file_reader_t f(argv[1]);
 	city_loop_t cities;
 	city_loop_t::iterator it;
 
