@@ -110,13 +110,13 @@ std::string GA::to_string(void) const {
 }
 
 
-double GA::get_mutation_rate(void) {
+double GA::get_mutation_rate(void)  const{
 	return _mutation_rate;
 }
-size_t GA::get_tournament_size( void ) {
+size_t GA::get_tournament_size( void ) const {
 	return _tournament_size;
 }
-bool GA::is_elitist(void){
+bool GA::is_elitist(void) const{
 	return _elitist;
 }
 

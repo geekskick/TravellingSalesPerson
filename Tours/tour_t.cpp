@@ -48,22 +48,7 @@ const double &tour_t::get_fitness(void) const{
 
 //------------
 const double& tour_t::get_distance(void){
-	if(_distance == 0.0){
-		double cumulative_distance = 0.0;
-		std::vector<city_t>::const_iterator it;
-		//all but the final city
-		for( it = _cities.begin(); it < _cities.end() - 1; it++){
-			cumulative_distance += it->get_location().distance_to((*(it+1)).get_location());
-		}
-
-		// final city goes back to the first one
-		cumulative_distance += (*(_cities.end()-1)).get_location().distance_to((*_cities.begin()).get_location());
-		_distance = cumulative_distance;
-
-
-	}
-	return _distance;
-
+	return get_distance();
 }
 
 //------------

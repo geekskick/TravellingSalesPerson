@@ -8,7 +8,7 @@
 
 typedef std::vector<city_t> city_loop_t;
 
-class tour_manager_t: public describable_t, public tour_base_t
+class tour_manager_t: public tour_base_t
 {
 public:
 	static tour_manager_t& get(void);

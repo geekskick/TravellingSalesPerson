@@ -6,7 +6,7 @@
 #include "../City/city_t.h"
 #include "tour_base_t.h"
 
-class tour_t: public describable_t, public tour_base_t
+class tour_t: public tour_base_t
 {
 public:
 	tour_t(void);

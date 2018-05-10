@@ -9,7 +9,7 @@
 #include <vector>
 typedef std::vector<city_t> city_loop_t;
 
-class tour_base_t
+class tour_base_t: public describable_t
 {
 public:
 	virtual unsigned long get_city_count( void) const;

@@ -9,12 +9,10 @@ void file_reader_t::close( void ){
 }
 
 bool file_reader_t::get_city( std::string &name, location_t &co_ords ){
-
 	int x, y;
 	bool rc = get_city(name, x, y);
 	co_ords.set_pair({x, y});
 	return rc;
-
 }
 
 /// TODO: Add some error checking in here
@@ -30,13 +28,13 @@ bool file_reader_t::get_city( std::string &name, int &x, int &y ) {
 }
 
 void file_reader_t::ensure_open( void ) {
-
+	const int attempts_limit = 5;
 	static int attempts = 0;
 	if(!_input.is_open()){
 		_input.open(_name, std::ios::in);
 		if(!_input.is_open()){
 			attempts++;
-			if(attempts < 5) {
+			if(attempts < attempts_limit) {
 				ensure_open();
 			}
 			else{
