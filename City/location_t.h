@@ -8,7 +8,7 @@
 #include <sstream>
 #include <cmath>
 
-class location_t: protected std::pair<int, int>, public describable_t{
+class location_t: public describable_t{
 public:
 	location_t(void);
 	location_t(const int x, const int y);
@@ -20,6 +20,8 @@ public:
 	void set_x(const int x);
 	void set_pair(const std::pair<int, int>& p);
 	std::string to_string(void) const;
+private:
+	std::pair<int, int> _pair;
 };
 
 
