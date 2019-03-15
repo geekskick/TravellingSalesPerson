@@ -1,13 +1,11 @@
 #ifndef TSP_DESCRIBABLE_T_H
 #define TSP_DESCRIBABLE_T_H
 
-
 #include <string>
 
-class describable_t{
+class describable_t {
 public:
-	virtual std::string to_string(void) const = 0;
+    virtual std::string to_string(void) const = 0;
 };
 
-
-#endif //TSP_DESCRIBABLE_T_H
+#endif // TSP_DESCRIBABLE_T_H
